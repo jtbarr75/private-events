@@ -1,2 +1,8 @@
 <%= render @event %>
-<p><%= @event.description %></p>
+<p>Hosted by: <%= link_to @event.creator.name, @event.creator %></p>
+<p>Description: <%= @event.description %></p>
+<% unless current_user.attended_events.include?@event %>
+  <%= link_to "Join this event", "/events/#{@event.id}/attend", method: :post %>
+<% end %>
+<h2>Attendees</h2>
+<%= render @event.attendees %>

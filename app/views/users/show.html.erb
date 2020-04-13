@@ -1,3 +1,9 @@
 <h1><%= @user.name %></h1>
-<p>Events Created:</p>
-<%= render @user.events %>
+<% unless @user.created_events.empty? %>
+  <p>Events Created:</p>
+  <%= render @user.created_events %>
+<% end %>
+<% unless @user.attended_events.empty? %>
+  <p>Events Attended:</p>
+  <%= render @user.attended_events %>
+<% end %>
