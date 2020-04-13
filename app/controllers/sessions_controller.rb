@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:session][:email].downcase)
     if @user
-      session[:id] = @user.id
+      log_in(@user)
       flash[:success] = "Logged in"
       redirect_to root_url
     else

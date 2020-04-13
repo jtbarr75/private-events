@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+
+  def log_in(user)
+    session[:id] = user.id
+  end
 end
