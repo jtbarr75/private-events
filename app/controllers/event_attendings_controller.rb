@@ -3,7 +3,7 @@ class EventAttendingsController < ApplicationController
   
   def create
     @event = Event.find(params[:id])
-    if current_user.attended_events.include?(@event)
+    if attending_or_hosting(@event)
       flash[:danger] = "You are already attending this event."
     else
       if current_user.attended_events << @event
@@ -12,6 +12,7 @@ class EventAttendingsController < ApplicationController
       else
         flash[:danger] = "An error occured"
         redirect_to @event
+      end
     end
   end
 
