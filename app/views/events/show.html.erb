@@ -1,7 +1,9 @@
 <%= render @event %>
 <p>Hosted by: <%= link_to @event.creator.name, @event.creator %></p>
 <p>Description: <%= @event.description %></p>
-<% unless attending_or_hosting(@event) %>
+<% if attending_or_hosting(@event) %>
+  <p><strong>You're attending this event!</strong></p>
+<% else %>
   <%= link_to "Join this event", "/events/#{@event.id}/attend", method: :post %>
 <% end %>
 <h2>Attendees</h2>

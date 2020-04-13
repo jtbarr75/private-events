@@ -1,9 +1,17 @@
 <h1><%= @user.name %></h1>
 <% unless @user.created_events.empty? %>
-  <p>Events Created:</p>
+  <h3>Events Created:</h3>
   <%= render @user.created_events %>
 <% end %>
-<% unless @user.attended_events.empty? %>
-  <p>Events Attended:</p>
-  <%= render @user.attended_events %>
+<h3>Upcoming Events:</h2>
+<% if @upcoming_events.empty? %>
+  <p>None...</p>
+<% else %>
+  <%= render @upcoming_events %>
+<% end %>
+<h3>Previous Events:</h2>
+<% if @previous_events.empty? %>
+  <p>None...</p>
+<% else %>
+  <%= render @previous_events %>
 <% end %>

@@ -11,6 +11,14 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  
+  def upcoming_events
+    self.attended_events.upcoming
+  end
+
+  def previous_events
+    self.attended_events.past
+  end
 
 private
 
