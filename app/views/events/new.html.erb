@@ -1,0 +1,21 @@
+<h1>Create an Event</h1>
+<%= form_for( @event ) do |f| %>
+  <%= render 'shared/errors', object: f.object%>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date, :order => [:month, :day, :year] %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

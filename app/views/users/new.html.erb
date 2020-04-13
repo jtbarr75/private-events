@@ -1,0 +1,16 @@
+<h1>Create an Account</h1>
+<%= form_for( @user ) do |f| %>
+  <%= render 'shared/errors', object: f.object%>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email%>
+  </div>
+
+  <%= f.submit %>
+<% end %>
